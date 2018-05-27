@@ -19,7 +19,7 @@ In addition, the ATH token supports a hard-coded vesting which has to be set pro
 The `ATHToken.sol` provides several features.
 
 ### ERC20
-Implements the standard ERC20 interface. [page](https://theethereum.wiki/w/index.php/ERC20_Token_Standard)
+Implements the standard ERC20 interface. See [page](https://theethereum.wiki/w/index.php/ERC20_Token_Standard).
 
 ### Vesting
 As a business requirement a vesting functionality is implemented. There will be a set of token holders which have tokens assigned to their address, but are not able to transfer/spend these tokens. They will be locked for a defined time. This is hard coded. 
