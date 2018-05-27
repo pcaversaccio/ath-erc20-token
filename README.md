@@ -22,7 +22,7 @@ The `ATHToken.sol` provides several features.
 Implements the standard ERC20 interface. See [page](https://theethereum.wiki/w/index.php/ERC20_Token_Standard).
 
 ### Vesting
-As a business requirement a vesting functionality is implemented. There will be a set of token holders which have tokens assigned to their address, but are not able to transfer/spend these tokens. They will be locked for a defined time. This is hard coded. 
+As a business requirement a vesting functionality is implemented. There will be a set of token holders which have tokens assigned to their address, but are not able to transfer/spend these tokens. They will be locked for a defined time. This is hard-coded. 
 The vesting is technical bound to the address. Be aware: If somebody transfer tokens to an active vested address, these tokens will be locked as well. 
 
 - `isLocked(address): bool`: Returns true if the address is locked (vesting period). In that case tokens assigned to that address are not able to be transferred. Returns false if there is no vesting or if the vesting period is expired.
