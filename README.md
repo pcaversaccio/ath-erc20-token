@@ -1,4 +1,4 @@
-# Alethena - ATH Token 
+# Alethena – ATH Token 
 
 Swiss Blockchain-Asset Rating Agency:
 Alethena – Empowering Investment
