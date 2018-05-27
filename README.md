@@ -8,12 +8,12 @@ The Alethena ATH token is a standard ERC20 token which will be deployed to the E
 In addition, the ATH token supports a hard-coded vesting which has to be set properly in the source code before the deployment. 
 
 ## ATH Properties
-- Token Type: ERC20
-- Symbol: ATH
-- Name: ALETHENA Token
-- Decimals: 18 Decimals
+- Token Type: ERC20.
+- Symbol: ATH.
+- Name: Alethena Token.
+- Decimals: 18 Decimals.
 - Max Tokens: Will be set at the end of the ICO. Amount of sold tokens.
-- Vested token holder: Not yet defined. 
+- Vested Token Holders: Not yet defined. 
 
 ## The contract and functionalities
 The `ATHToken.sol` provides several features.
