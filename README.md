@@ -15,7 +15,7 @@ In addition, the ATH token supports a hard-coded vesting which has to be set pro
 - Max Tokens: Will be set at the end of the ICO. Amount of sold tokens.
 - Vested Token Holders: Not yet defined. 
 
-## The contract and functionalities
+## The Contract and Functionalities
 The `ATHToken.sol` provides several features.
 
 ### ERC20
@@ -37,7 +37,7 @@ In this case `isMintDone()` will return true.
 `function mint(address[] recipients, uint256[] tokens) public onlyOwner returns (bool)`
 Minting allows an array of recipients and an array of tokens. So it's possible to mint for multiple recipients in one transaction. Used to save Gas. 
 
-### Transfer ownership
+### Transfer Ownership
 The owner of the contract is able to transfer the ownership to an new owner.
 The owner of the contract is allowed to mint. When the minting process ended (maximum amount of tokens minted), even the owner of the contract has no more functionality.
 
@@ -52,4 +52,4 @@ Token holder will be able to vote with their ATH tokens for specific ballots def
 
 ## Security
 - the well known minor `approve(spender, value)` issue from ERC20 is not handled at all. [Issue, page 12](https://drive.google.com/file/d/0ByMtMw2hul0EN3NCaVFHSFdxRzA/view) or [here](https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729). Workaround with `increase/decreaseApproval()` [here](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol) are implemented.
-- Rule: throw exceptions instead of value return. In the ERC20 interface the most methods returns `true` or  `false` if you're doing a transaction. We prefer throwing an exception if something went wrong by using `require()`. In that case it's sure that no state change happened. With `require()` remaining gas will be returned to the sender. 
+- Rule: throw exceptions instead of value return. In the ERC20 interface the most methods returns `true` or  `false` if you're doing a transaction. We prefer throwing an exception if something went wrong by using `require()`. In that case it's sure that no state change happened. With `require()` remaining gas will be returned to the sender.
