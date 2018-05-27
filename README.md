@@ -42,14 +42,14 @@ The owner of the contract is able to transfer the ownership to an new owner.
 The owner of the contract is allowed to mint. When the minting process ended (maximum amount of tokens minted), even the owner of the contract has no more functionality.
 
 ### Voting
-Token holder will be able to vote with their ATH tokens for specific ballots defined by Alethena. The voting functionality itself is not part of the token.
+Token holders will be able to vote with their ATH tokens for specific ballots defined by Alethena. The voting functionality itself is not part of the token and will be implemented by a voting DApp.
 
 ### Others
-- The contract does not allow Ether 
-- The contract can not be destroyed
-- There is no update mechanism
+- The contract does not allow Ether.
+- The contract can not be destroyed.
+- There is no update mechanism.
 - There is a function `transferArray`. It's the same principe as in the minting. Transfer tokens to a list of recipients in one transaction. Used to save Gas. 
 
 ## Security
-- the well known minor `approve(spender, value)` issue from ERC20 is not handled at all. [Issue, page 12](https://drive.google.com/file/d/0ByMtMw2hul0EN3NCaVFHSFdxRzA/view) or [here](https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729). Workaround with `increase/decreaseApproval()` [here](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol) are implemented.
+- The well known minor `approve(spender, value)` issue from ERC20 is not handled at all. [Issue, page 12](https://drive.google.com/file/d/0ByMtMw2hul0EN3NCaVFHSFdxRzA/view) or [here](https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729). Workaround with `increase/decreaseApproval()` [here](https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol) are implemented.
 - Rule: throw exceptions instead of value return. In the ERC20 interface the most methods returns `true` or  `false` if you're doing a transaction. We prefer throwing an exception if something went wrong by using `require()`. In that case it's sure that no state change happened. With `require()` remaining gas will be returned to the sender.
