@@ -4,7 +4,7 @@ Swiss Blockchain-Asset Rating
 Alethena – Empowering Investment
 
 ## Overview
-The Alethena ATH token is a standard ERC20 token which will be deployed to the Ethereum Blockchain. 
+The Alethena ATH token is a standard ERC20 token which will be deployed to the Ethereum blockchain. 
 In addition the ATH token supports a hard-coded vesting which has to be set properly in the source code before the deployment. 
 
 ## ATH Properties
