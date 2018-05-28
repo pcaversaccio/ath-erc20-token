@@ -217,7 +217,7 @@ contract ATHToken is ERC20Interface, Ownable, SafeMath {
 
         require(mint(lockedAddresses, lockedTokens));
 
-        for(uint8 i = 0; i<maxVested; i++) {
+        for(uint256 i = 0; i<maxVested; i++) {
             timeLocked[lockedAddresses[i]] = lockTime[i];
         }
 
@@ -306,7 +306,9 @@ contract ATHToken is ERC20Interface, Ownable, SafeMath {
      * @dev both arrays requires to have the same length
      */
     function transferArray(address[] tos, uint256[] values) public returns (bool) {
-        for (uint8 i = 0; i < tos.length; i++) {
+        require(tos.length == values.length);
+
+        for (uint256 i = 0; i < tos.length; i++) {
             require(transfer(tos[i], values[i]));
         }
 
@@ -322,8 +324,9 @@ contract ATHToken is ERC20Interface, Ownable, SafeMath {
     function mint(address[] recipients, uint256[] tokens) public returns (bool) {
         require(msg.sender == owner);
         require(initDone);
+        require(recipients.length == tokens.length);
 
-        for (uint8 i = 0; i < recipients.length; i++) {
+        for (uint256 i = 0; i < recipients.length; i++) {
 
             address recipient = recipients[i];
             uint256 token = tokens[i];
