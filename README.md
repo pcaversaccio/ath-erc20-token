@@ -76,5 +76,4 @@ The states a response has are:
 To calculate the result of a vote, the individual votes need to be weighted first. Weighting is done on the client DApp side using the “balanceOf” of the token contract at “start block time”. All responses that have a Merkle proof will be iterated through and weighted accordingly. Only proofs that happen between “start block time” and “end block time” will be counted.
 
 ### Response Verification
-
 The Merkle proof attached to the responses makes sure it existed at a given time and cannot be changed anymore. However, if the proposal creator wants to delete a proposal including its responses he is free to do so. This design decision was taken on purpose to make managing the content creation and management easier. If the latter discussed property is unwanted, the client DApp saves the Merkle proofs in its local storage and the result is that if the client does not find a response for which a proof was made it identifies something was deleted. Furthermore, the client DApp can always tell a user whether he/she already voted, making it easy for humans to spot if responses are deleted.
