@@ -59,3 +59,22 @@ Token holders will be able to vote with their ATH tokens for specific ballots de
 - Define vesting addresses.
 - Define vesting time per address.
 - Define number of vested tokens per vesting address.
+
+## Voting DApp Functionality
+
+### Proposal Verification
+The Merkle proof attached to the first proposal’s vote makes sure it existed at a given time and cannot be changed anymore. However, if the proposal creator wants to delete a proposal including its responses he is free to do so. This design decision was taken on purpose to make managing the content creation and management easier. If the latter discussed property is unwanted, the client DApp saves the Merkle proofs in its local storage and the result is that if the client does not find a proposal for which a proof was made it identifies something was deleted.
+
+### Response Creation
+The client consuming the DApp will sign a message with its private key. The message contains the option the client wants to vote for and a hash of the previous vote (or if the first vote, the previous hash will be set to the proposal’s hash). This chain of hashes makes sure, no vote can be adapted or deleted without resulting in a loss of all subsequent votes. The voting backend extracts the address from the signature and commits the response.
+
+The states a response has are:
+- Committed: Notarisation is ongoing but not done yet.
+- Notarised: The response has a Merkle proof hooked into the blockchain.
+
+### Response Weighting
+To calculate the result of a vote, the individual votes need to be weighted first. Weighting is done on the client DApp side using the “balanceOf” of the token contract at “start block time”. All responses that have a Merkle proof will be iterated through and weighted accordingly. Only proofs that happen between “start block time” and “end block time” will be counted.
+
+### Response Verification
+
+The Merkle proof attached to the responses makes sure it existed at a given time and cannot be changed anymore. However, if the proposal creator wants to delete a proposal including its responses he is free to do so. This design decision was taken on purpose to make managing the content creation and management easier. If the latter discussed property is unwanted, the client DApp saves the Merkle proofs in its local storage and the result is that if the client does not find a response for which a proof was made it identifies something was deleted. Furthermore, the client DApp can always tell a user whether he/she already voted, making it easy for humans to spot if responses are deleted.
